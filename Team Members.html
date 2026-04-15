@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Drag & drop</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+        <style>
+:root {
+    --primary: #0969DA;
+    --background: #EDEEF7;
+    --gray: #EDEEF7;
+    --white: #FCFCFC;
+    --navbar-height: 60px;
+}
+
+body {
+    font-family: "Red Hat Display", 
+        sans-serif;
+    font-size: 16px;
+    background: var(--background);
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#team-members {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 25rem;
+    width: 100%;
+    background: var(--white);
+    border-radius: 2rem;
+    box-shadow: 
+     rgba(0, 0, 0, 0.05) 0px 6px 
+     24px 0px;
+}
+
+.team-member {
+    position: relative;
+    z-index: 1;
+    min-height: 3.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    padding: 1rem;
+    align-items: center;
+    background: var(--white);
+    box-shadow: 
+     rgba(0, 0, 0, 0.05) 0px 6px 
+      24px 0px;
+}
+
+.team-member:hover {
+    cursor: grab;
+}
+
+.social-links {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-left: auto;
+    gap: 0.375rem;
+    flex-direction: row;
+}
+
+.social-links img {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.team-member-avatar {
+    width: 3.75rem;
+    height: 3.75rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-member-socials {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.team-member-name {
+    display: grid;
+    gap: 0.125rem;
+}
+
+.team-member-name h3 {
+    font-size: large;
+}
+
+.team-member-name p {
+    font-size: smaller;
+}
+
+.team-member-chosen {
+    box-shadow: 8px 8px 32px #E1E1E1;
+}
+
+.team-member-drag {
+    opacity: 0;
+}
+
+@media (max-width: 400px) {
+    .social-links {
+        display: none;
+    }
+}
+        </style>
+    </head>
+    <body>
+        <div id="team-members">
+            <article class="team-member">
+                <img
+                    class="team-member-avatar"
+                    src="assets/james.jpg"
+                    alt="James Alexander"
+                >
+                <div class="team-member-name">
+                    <h3>James Alexander</h3>
+                    <p>Full-Stack Developer</p>
+                </div>
+                <ul class="social-links">
+                    <li>
+                        <a href="#"><img src="assets/linkedin.svg" alt="Linkedin"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/x.svg" alt="X"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/github.svg" alt="GitHub"></a>
+                    </li>
+                </ul>
+            </article>
+            <article class="team-member">
+                <img
+                    class="team-member-avatar"
+                    src="assets/liliya.jpg"
+                    alt="Lilia Williams"
+                >
+                <div class="team-member-name">
+                    <h3>
+                        Lilia Williams
+                    </h3>
+                    <p>
+                        UX/UI Designer
+                    </p>
+                </div>
+                <ul class="social-links">
+                   
+                    <li>
+                        <a href="#">
+                            <img src="assets/linkedin.svg" alt="Linkedin">                                
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="assets/x.svg" alt="X">                                                                
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="assets/instagram.svg" alt="Instagram">
+                        </a>
+                    </li>
+                </ul>
+            </article>
+            <article class="team-member">
+                <img
+                    class="team-member-avatar"
+                    src="assets/alex.jpg"
+                    alt="Alexander Smith"
+                >
+                <div class="team-member-name">
+                    <h3>
+                        Alexander Smith
+                    </h3>
+                    <p>
+                        Product Manager
+                    </p>
+                </div>
+                <ul class="social-links">
+                    <li>
+                        <a href="#">
+                            <img src="assets/linkedin.svg" alt="Linkedin">                                
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="assets/x.svg" alt="X">                                                                
+                        </a>
+                    </li>
+                </ul>
+            </article>
+            <article class="team-member">
+                <img
+                    class="team-member-avatar"
+                    src="assets/melissa.jpg"
+                    alt="Melissa Taylor"
+                >
+                <div class="team-member-name">
+                    <h3>
+                        Melissa Taylor
+                    </h3>
+                    <p>
+                        Data Science
+                    </p>
+                </div>
+                <ul class="social-links">
+                    <li>
+                        <a href="#">
+                            <img src="assets/linkedin.svg" alt="Linkedin">                                
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="assets/x.svg" alt="X">                                                                
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="assets/github.svg" alt="GitHub">                                                                
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+        <!-- JS scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+          const dragAndDropItems = document.getElementById(
+    'team-members'
+);
+
+new Sortable(dragAndDropItems, {
+   animation: 350,
+   chosenClass: "team-member-chosen",
+   dragClass: "team-member-drag",
+});
+        </script>
+    </body>
+</html>
+
